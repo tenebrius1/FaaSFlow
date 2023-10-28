@@ -30,7 +30,8 @@ def prefetch_data():
     # except Exception:
     consumer = Consumer({'bootstrap.servers': config.KAFKA_URL,
                          'group.id': str(uuid.uuid4()),
-                         'enable.auto.commit': False})
+                         'enable.auto.commit': False, 
+                         'partition.assignment.strategy': 'cooperative-sticky',})
     # print('assigning:', topic, partition_idx, start_offset)
     consumer.assign([TopicPartition(topic, partition_idx, offset=start_offset)])
     # print(consumer.assignment())

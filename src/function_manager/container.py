@@ -37,6 +37,7 @@ class Container:
                                           detach=True,
                                           ports={'5000/tcp': str(port)},
                                           labels=['workflow'],
+                                          network='scripts_faasflow',
                                           cpu_period=int(100000 * f),
                                           cpu_quota=int(config.DOCKER_CPU_QUOTA * cpus * parallel_limit * f),
                                           mounts=[mount],

@@ -202,12 +202,14 @@ def test_to_all():
     # target_workflow = {'recognizer': {1: 10, 2: 10, 4: 10, 7: 10, 8: 10, 9: 10, 10: 10},
     #                    'wordcount': {1: 5, 2: 5, 4: 5, 8: 5, 16: 5, 19: 5, 20: 5, 21: 5, 22: 5},
     #                    'video': {1: 10, 2: 10, 4: 10, 8: 10, 9: 10, 10: 10, 11: 10}}
-    target_rpm = {'low': {'recognizer': 10, 'video': 5, 'wordcount': 10, 'svd': 10},
-                  'mid': {'recognizer': 20, 'video': 10, 'wordcount': 20, 'svd': 20},
-                  'high': {'recognizer': 40, 'video': 20, 'wordcount': 40, 'svd': 40},
-                  'ultraHigh': {'recognizer': 60, 'video': 30, 'wordcount': 60, 'svd': 60}}
+    # target_rpm = {'low': {'recognizer': 10, 'video': 5, 'wordcount': 10, 'svd': 10},
+    #               'mid': {'recognizer': 20, 'video': 10, 'wordcount': 20, 'svd': 20},
+    #               'high': {'recognizer': 40, 'video': 20, 'wordcount': 40, 'svd': 40},
+    #               'ultraHigh': {'recognizer': 60, 'video': 30, 'wordcount': 60, 'svd': 60}}
     # target_rpm = {
     #               'high': {'recognizer': 40, 'video': 20, 'wordcount': 40, 'svd': 40}}
+    target_rpm = {
+                  'low': {'wordcount': 10}}
     # target_rpm = {
     #               'ultraHigh': {'recognizer': 80, 'video': 40, 'wordcount': 160}}
     for rpm_type in target_rpm:

@@ -10,6 +10,8 @@ import redis
 import requests
 import container_config
 
+ip_add = socket.gethostbyname('host.docker.internal')
+
 host_url = 'http://172.17.0.1:8000/{}'
 disk_reader_url = 'http://172.17.0.1:8001/{}'
 db_threshold = 1024 * 16  # >16KB data will be sent to remote db
@@ -205,7 +207,7 @@ class Store:
                                      'output_type': self.block_infos['output_datas'][key]['type']}},
                      'post_time': time.time()}
         s = socket.socket()
-        s.connect(('172.17.0.1', 5999))
+        s.connect((f'{ip_add}', 5999))
         s.sendall(bytes(json.dumps(post_data), encoding='UTF-8'))
         s.close()
         # st = time.time()
@@ -222,7 +224,7 @@ class Store:
                      'datas': {db_key: {'datatype': 'data_fetched', 'db_key': db_key}},
                      'post_time': time.time()}
         s = socket.socket()
-        s.connect(('172.17.0.1', 5999))
+        s.connect((f'{ip_add}', 5999))
         s.sendall(bytes(json.dumps(post_data), encoding='UTF-8'))
         s.close()
         # requests.post(host_url.format('commit_inter_data'), json=post_data)
@@ -240,7 +242,7 @@ class Store:
                                    'output_type': self.block_infos['output_datas'][k]['type']}},
                      'post_time': time.time()}
         s = socket.socket()
-        s.connect(('172.17.0.1', 5999))
+        s.connect((f'{ip_add}', 5999))
         s.sendall(bytes(json.dumps(post_data), encoding='UTF-8'))
         s.close()
         # requests.post(host_url.format('commit_inter_data'), json=post_data)

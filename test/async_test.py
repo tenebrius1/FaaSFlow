@@ -189,12 +189,12 @@ def test_to_all():
     #                    'wordcount': {1: 5, 2: 5, 4: 5, 8: 5, 16: 5, 19: 5, 20: 5, 21: 5, 22: 5},
     #                    'video': {1: 10, 2: 10, 4: 10, 8: 10, 9: 10, 10: 10, 11: 10}}
     target_workflow = {
-        'svd': {10: 5, 20: 5, 40: 5, 60: 5, 80: 5, 100: 5}
+        'wordcount': {10: 1},
         }
-    target_workflow = {'recognizer': {10: 1},
-                       'wordcount': {10: 1},
-                       'svd': {10: 1},
-                       'video': {4: 1}}
+    # target_workflow = {'recognizer': {10: 1},
+    #                    'wordcount': {10: 1},
+    #                    'svd': {10: 1},
+    #                    'video': {4: 1}}
     for workflow_name in target_workflow:
         for rpm in target_workflow[workflow_name]:
             test_to_one(workflow_name, rpm, 60 * target_workflow[workflow_name][rpm])

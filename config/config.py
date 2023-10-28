@@ -1,10 +1,10 @@
 # In template, functions are across different workflows.
 import os.path
 
-KAFKA_IP = '10.10.1.2'
-GATEWAY_IP = '10.10.1.1'
-COUCHDB_IP = '10.10.1.2'
-WORKER_ADDRS = ['10.10.1.3', '10.10.1.4', '10.10.1.5']
+KAFKA_IP = '127.0.0.1'
+GATEWAY_IP = '127.0.0.1'
+COUCHDB_IP = '127.0.0.1'
+WORKER_ADDRS = ['127.0.0.1']
 
 COUCHDB_URL = f'http://openwhisk:openwhisk@{COUCHDB_IP}:5984/'
 REDIS_HOST = '127.0.0.1'
@@ -17,16 +17,17 @@ GATEWAY_URL = f'{GATEWAY_IP}:7000'
 
 FUNCTIONS_INFO_PATH = '../../benchmark'
 WORKFLOWS_INFO_PATH = {
-                       'video': os.path.expanduser('~/FaaSFlow/benchmark/video'),
-                       'wordcount': os.path.expanduser('~/FaaSFlow/benchmark/wordcount'),
-                       'recognizer': os.path.expanduser('~/FaaSFlow/benchmark/recognizer'),
-                       'svd': os.path.expanduser('~/FaaSFlow/benchmark/svd')}
-if os.path.exists('/state/partition2/FaaSFlow'):
-    PREFETCH_POOL_PATH = '/state/partition2/FaaSFlow/prefetch_pool'
-    FILE_CONTROLLER_PATH = '/state/partition2/FaaSFlow/file_controller'
-else:
-    PREFETCH_POOL_PATH = os.path.expanduser('~/FaaSFlow/prefetch_pool')
-    FILE_CONTROLLER_PATH = os.path.expanduser('~/FaaSFlow/file_controller')
+                       'video': os.path.expanduser('~/fyp/FaaSFlow/benchmark/video'),
+                       'wordcount': os.path.expanduser('~/fyp/FaaSFlow/benchmark/wordcount'),
+                       'recognizer': os.path.expanduser('~/fyp/FaaSFlow/benchmark/recognizer'),
+                       'svd': os.path.expanduser('~/fyp/FaaSFlow/benchmark/svd')
+                       }
+# if os.path.exists('/state/partition2/FaaSFlow'):
+#     PREFETCH_POOL_PATH = '/state/partition2/FaaSFlow/prefetch_pool'
+#     FILE_CONTROLLER_PATH = '/state/partition2/FaaSFlow/file_controller'
+# else:
+PREFETCH_POOL_PATH = os.path.expanduser('~/fyp/FaaSFlow/prefetch_pool')
+FILE_CONTROLLER_PATH = os.path.expanduser('~/fyp/FaaSFlow/file_controller')
 CHUNK_SIZE = 1 * 1024 * 1024
 
 DOCKER_CPU_QUOTA = 100000
